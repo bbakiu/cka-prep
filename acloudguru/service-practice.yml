@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-12-10T15:18:03Z"
+  labels:
+    app: webfront-deploy
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-expose
+    operation: Update
+    time: "2020-12-10T15:18:03Z"
+  name: webfront-service
+  namespace: web
+  resourceVersion: "2336394"
+  selfLink: /api/v1/namespaces/web/services/webfront-service
+  uid: 85640494-0bf6-4e98-b929-b6b54c56e643
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30080
+  selector:
+    app: webfront-deploy
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

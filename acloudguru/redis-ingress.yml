@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: redis-netpolicy
+  namespace: web
+spec:
+  podSelector:
+    matchLabels:
+      app: db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from: 
+    - podSelector:
+        matchLabels:
+          app: webfront-deploy
+    ports:
+    - protocol: TCP
+      port: 6379
