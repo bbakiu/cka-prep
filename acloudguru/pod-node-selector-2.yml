@@ -10,4 +10,3 @@ spec:
     image: nginx
   nodeSelector:
     disk: ssd
-~
