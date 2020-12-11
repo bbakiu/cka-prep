@@ -1,0 +1,14 @@
+source <(kubectl completion bash) # setup autocomplete in bash into the current shell, bash-completion package should be installed first.
+echo "source <(kubectl completion bash)" >> ~/.bashrc 
+alias k=kubectl
+complete -F __start_kubectl k
+
+alias kc="kubectl create "
+alias kd="kubectl describe"
+alias ke="kubectl expose"
+alias kg="kubectl get"
+alias kr="kubectl run"
+alias kaf="kubectl apply -f"
+alias krf="kubectl replace --force -f"
+alias kpo="kubectl get pods"
+alias kno="kubectl get nodes"
