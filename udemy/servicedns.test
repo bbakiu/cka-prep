@@ -1,0 +1,5 @@
+Server:    10.96.0.10
+Address 1: 10.96.0.10 kube-dns.kube-system.svc.cluster.local
+
+Name:      webservice
+Address 1: 10.100.133.14 webservice.default.svc.cluster.local
