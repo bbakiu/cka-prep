@@ -1,0 +1,35 @@
+1. Don't forget to check the pods in kube-system
+2. To check the kubeconfig file run
+ `kubectl cluster-info --kubeconfig=file-path`
+3. Check fo typos in kube-controller-manager
+4. kubelet and proxy should be running in worker node
+5. etcd, proxy, scheduler, api-server, controller manager, CNI should be running in master/controlplane
+6. by default static pod path = /etc/kubernetes/manifests. create it if it does not exit
+   Or check ps -ef | grep -i kubelet and find --config param
+7. Check names,labels and ports of pod, service and ingress. Make sure they match.
+8. Check NetworkPolicies
+9. Check the ports and labels
+10. Check endpoints of the service and make sure the selector of service matches label of pod
+11. Check env variable that they are correct in pod/deployment
+12. network between pods and services
+13. Check port of service/endpoint of ingress to make sure they are correct
+14. Bookmark link to install network plugin
+15. check scheduler status
+16. check logs of static pods in kube-system
+17. learn to user journalctl
+18. kubelet config file by default: /var/lib/kubelet/config
+19. kubeadm config /etc/systemd/system/kubelet.service.de/10-kubeadm.conf
+20. kubecontroller-manager - responsible for deploy/scale
+21. for certificates make sure th volume and volume mount are matching the path
+22. check if kubelet is running and start it if not
+23. kubectl describe node node01 - to check node logs 
+24. journalctl to troubleshoot further in the node
+    `journalctl -u kubelet` `journalctl -u kube-proxy`
+25. kubectl cluster-info -- where api server is running
+26. check kube config from /etc/kubernetes/kubelet.conf
+27. If you run systemctl status kubelet you know where config of kubelet is store
+    2 are the most imporant part: 
+     - --kubeconfig -> api server comm -- server section 6443!
+     - --config for kubelet config stuff.
+
+30. CALICO: curl https://docs.projectcalico.org/manifests/calico.yaml -O
