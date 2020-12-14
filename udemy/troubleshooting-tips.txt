@@ -24,7 +24,7 @@
 22. check if kubelet is running and start it if not
 23. kubectl describe node node01 - to check node logs 
 24. journalctl to troubleshoot further in the node
-    `journalctl -u kubelet` `journalctl -u kube-proxy`
+    `journalctl -u kubelet` `journalctl -u kube-proxy` `journalctl -u docker`
 25. kubectl cluster-info -- where api server is running
 26. check kube config from /etc/kubernetes/kubelet.conf
 27. If you run systemctl status kubelet you know where config of kubelet is store
@@ -33,3 +33,11 @@
      - --config for kubelet config stuff.
 
 30. CALICO: curl https://docs.projectcalico.org/manifests/calico.yaml -O
+31. kubectl logs pod -p to get logs of last run
+32. view api servier config: kubectl config view
+33. interactive busybox pod:
+        `kubectl run -it --rm --restart=Never busybox --image=busybox:1.28 -- sh`
+        / # nslookup service
+34. endpoint: kubectl get endpoints
+35. exec into pod: kubectl exec -it <pod_name> -n <namespace> -- sh
+36. find etcd server: /etc/systemd/systemd/kube-apiserver.service
