@@ -41,3 +41,13 @@
 34. endpoint: kubectl get endpoints
 35. exec into pod: kubectl exec -it <pod_name> -n <namespace> -- sh
 36. find etcd server: /etc/systemd/systemd/kube-apiserver.service
+
+37. find kubelet config file location in /etc/systemd/system/kubelet.service.de/10-kubeadm.conf (--config)
+38. journalctl to troubleshoot further
+39. kubelet service is timing out -> problem with communication to apiserver
+    check kubectl cluster-info to find ip:port of api server (port is 6443 by default)
+    --kubeconfig => details for api server
+40. systemctl daemon-reload && systemctl restart kubelet
+41. find etcd.yaml in /etc/kubernetes/manifests to find the params
+42. kubectl run --attach busybox --rm --image=busybox:1.28 --restart=Never -- sh -c "sleep 4 && nslookup kubernetes.default"
+43. swapoff -a
